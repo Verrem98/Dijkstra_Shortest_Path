@@ -1,14 +1,13 @@
 package com.company;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class Reis implements Comparable<Reis> {
 
-    private ArrayList<Plaats> plaatsen;
-    private Plaats startPlaats;
-    private Plaats eindPlaats;
-    private Stap stap;
+    final ArrayList<Plaats> plaatsen;
+    final Plaats startPlaats;
+    final Plaats eindPlaats;
+    final Stap stap;
 
 
     public Reis(ArrayList<Plaats> plaatsen, Plaats startPlaats, Plaats eindPlaats, Stap stap) {
@@ -80,7 +79,7 @@ public class Reis implements Comparable<Reis> {
                         throw new IllegalArgumentException("Deze steden zijn niet met elkaar verbonden via " + stap.getName().toString().toLowerCase());
                     }
                     returnString.append(" --> ").append(viaPlaats.getNaam());
-                    ;
+
 
 
                     if (viaPlaats == eindPlaats) {
@@ -112,15 +111,7 @@ public class Reis implements Comparable<Reis> {
     public int compareTo(Reis reis_2) {
         if (this.stap.getName().equals(reis_2.stap.getName())) {
 
-            if (Float.parseFloat(this.shortestPath().split(",")[1].split(" ")[1]) > Float.parseFloat(reis_2.shortestPath().split(",")[1].split(" ")[1])) {
-                return 1;
-
-            } else if (Float.parseFloat(this.shortestPath().split(",")[1].split(" ")[1]) < Float.parseFloat(reis_2.shortestPath().split(",")[1].split(" ")[1])) {
-                return -1;
-
-            } else {
-                return 0;
-            }
+            return Float.compare(Float.parseFloat(this.shortestPath().split(",")[1].split(" ")[1]), Float.parseFloat(reis_2.shortestPath().split(",")[1].split(" ")[1]));
         }else{
             throw new Error("Dit zijn 2 verschillende soorten reizen");
         }

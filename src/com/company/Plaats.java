@@ -4,11 +4,11 @@ import java.util.HashMap;
 
 public class Plaats {
 
-    private String naam;
+    final String naam;
 
-    private HashMap<Plaats, Double> vluchtVerbindingen = new HashMap<>();
-    private HashMap<Plaats, Double> treinritVerbindingen = new HashMap<>();
-    private HashMap<Plaats, Double> ritVerbindingen = new HashMap<>();
+    final HashMap<Plaats, Double> vluchtVerbindingen = new HashMap<>();
+    final HashMap<Plaats, Double> treinritVerbindingen = new HashMap<>();
+    final HashMap<Plaats, Double> ritVerbindingen = new HashMap<>();
 
 
     public Plaats(String naam) {
@@ -54,18 +54,6 @@ public class Plaats {
         }
 
         throw new IllegalArgumentException("geen geldig verbindingtype");
-    }
-
-    public HashMap<Plaats, Double> getVluchtVerbindingen() {
-        return vluchtVerbindingen;
-    }
-
-    public HashMap<Plaats, Double> getTreinVerbindingen() {
-        return treinritVerbindingen;
-    }
-
-    public HashMap<Plaats, Double> getWegVerbindingen() {
-        return ritVerbindingen;
     }
 
     public String getNaam() {

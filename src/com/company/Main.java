@@ -13,7 +13,7 @@ public class Main {
         Plaats brussel = new Plaats("Brussel");
         Plaats reykjavik = new Plaats("Reykjavik");
 
-        ArrayList<Plaats> plaatsen = new ArrayList<Plaats>(); // Create an ArrayList object
+        ArrayList<Plaats> plaatsen = new ArrayList<>(); // Create an ArrayList object
 
         plaatsen.add(london);
         plaatsen.add(amsterdam);
