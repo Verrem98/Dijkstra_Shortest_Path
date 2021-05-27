@@ -77,7 +77,7 @@ public class Reis{
 
 
                     if(viaPlaats == null){
-                        throw new IllegalArgumentException("There is no path between these cities");
+                        throw new IllegalArgumentException("Deze steden zijn niet aan elkaar verbonden via " + stap.getName().toString().toLowerCase());
                     }
                     returnString.append(" --> ").append(viaPlaats.getNaam());
                     ;
