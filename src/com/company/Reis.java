@@ -5,9 +5,20 @@ import java.util.Collections;
 
 public class Reis{
 
+    private ArrayList<Plaats> plaatsen;
+    private Plaats startPlaats;
+    private Plaats eindPlaats;
+    private Stap stap;
 
 
-    public String shortestPath(ArrayList<Plaats> plaatsen, Plaats startPlaats, Plaats eindPlaats, Stap stap) {
+    public Reis(ArrayList<Plaats> plaatsen, Plaats startPlaats, Plaats eindPlaats, Stap stap) {
+        this.plaatsen = plaatsen;
+        this.startPlaats = startPlaats;
+        this.eindPlaats = eindPlaats;
+        this.stap = stap;
+    }
+
+    public String shortestPath() {
 
         ArrayList<Plaats> unvisited = new ArrayList<>(plaatsen);
         ArrayList<Double> shortestDisFromStart = new ArrayList<>();
