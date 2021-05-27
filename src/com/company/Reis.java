@@ -19,8 +19,8 @@ public class Reis implements Comparable<Reis> {
 
     public String shortestPath() {
 
-        ArrayList<Plaats> unvisited = new ArrayList<>(plaatsen);
-        ArrayList<Double> shortestDisFromStart = new ArrayList<>();
+        ArrayList<Plaats> nietBezocht = new ArrayList<>(plaatsen);
+        ArrayList<Double> kleinsteAfstandVanStart = new ArrayList<>();
         ArrayList<Plaats> voorgaandePlaats = new ArrayList<>();
 
 
@@ -32,9 +32,9 @@ public class Reis implements Comparable<Reis> {
 
         for (Plaats plaats : plaatsen) {
             if (plaats == eindPlaats) {
-                shortestDisFromStart.add(0.);
+                kleinsteAfstandVanStart.add(0.);
             } else {
-                shortestDisFromStart.add(Double.MAX_VALUE);
+                kleinsteAfstandVanStart.add(Double.MAX_VALUE);
             }
         }
 
@@ -46,12 +46,12 @@ public class Reis implements Comparable<Reis> {
             Integer minIndex = null;
 
 
-            for (int i = 0; i < unvisited.size(); i++) {
+            for (int i = 0; i < nietBezocht.size(); i++) {
 
-                if (unvisited.get(i) != null) {
+                if (nietBezocht.get(i) != null) {
 
-                    if (shortestDisFromStart.get(i) < lowestValue) {
-                        lowestValue = shortestDisFromStart.get(i);
+                    if (kleinsteAfstandVanStart.get(i) < lowestValue) {
+                        lowestValue = kleinsteAfstandVanStart.get(i);
                         minIndex = i;
 
                     }
@@ -83,7 +83,7 @@ public class Reis implements Comparable<Reis> {
 
 
                     if (viaPlaats == eindPlaats) {
-                        return returnString.append(", ").append(shortestDisFromStart.get(plaatsen.indexOf(startPlaats))).append(stap.getEenheidsString()).toString();
+                        return returnString.append(", ").append(kleinsteAfstandVanStart.get(plaatsen.indexOf(startPlaats))).append(stap.getEenheidsString()).toString();
 
                     }
 
@@ -93,14 +93,14 @@ public class Reis implements Comparable<Reis> {
 
             for (Plaats p : plaatsen.get(minIndex).getVerbindingen(stap.getName()).keySet()) {
 
-                if (shortestDisFromStart.get(plaatsen.indexOf(p)) > (plaatsen.get(minIndex).getVerbindingen(stap.getName()).get(p) + shortestDisFromStart.get(minIndex))) {
-                    shortestDisFromStart.set(plaatsen.indexOf(p), plaatsen.get(minIndex).getVerbindingen(stap.getName()).get(p) + shortestDisFromStart.get(minIndex));
+                if (kleinsteAfstandVanStart.get(plaatsen.indexOf(p)) > (plaatsen.get(minIndex).getVerbindingen(stap.getName()).get(p) + kleinsteAfstandVanStart.get(minIndex))) {
+                    kleinsteAfstandVanStart.set(plaatsen.indexOf(p), plaatsen.get(minIndex).getVerbindingen(stap.getName()).get(p) + kleinsteAfstandVanStart.get(minIndex));
                     voorgaandePlaats.set(plaatsen.indexOf(p), plaatsen.get(minIndex));
                 }
 
             }
 
-            unvisited.set(minIndex, null);
+            nietBezocht.set(minIndex, null);
 
 
         }
