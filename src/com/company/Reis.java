@@ -3,7 +3,7 @@ package com.company;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Reis{
+public class Reis implements Comparable<Reis> {
 
     private ArrayList<Plaats> plaatsen;
     private Plaats startPlaats;
@@ -76,8 +76,8 @@ public class Reis{
                     viaPlaats = voorgaandePlaats.get(plaatsen.indexOf(viaPlaats));
 
 
-                    if(viaPlaats == null){
-                        throw new IllegalArgumentException("Deze steden zijn niet aan elkaar verbonden via " + stap.getName().toString().toLowerCase());
+                    if (viaPlaats == null) {
+                        throw new IllegalArgumentException("Deze steden zijn niet met elkaar verbonden via " + stap.getName().toString().toLowerCase());
                     }
                     returnString.append(" --> ").append(viaPlaats.getNaam());
                     ;
@@ -108,5 +108,21 @@ public class Reis{
 
     }
 
-}
+    @Override
+    public int compareTo(Reis reis_2) {
+        if (this.stap.getName().equals(reis_2.stap.getName())) {
 
+            if (Float.parseFloat(this.shortestPath().split(",")[1].split(" ")[1]) > Float.parseFloat(reis_2.shortestPath().split(",")[1].split(" ")[1])) {
+                return 1;
+
+            } else if (Float.parseFloat(this.shortestPath().split(",")[1].split(" ")[1]) < Float.parseFloat(reis_2.shortestPath().split(",")[1].split(" ")[1])) {
+                return -1;
+
+            } else {
+                return 0;
+            }
+        }else{
+            throw new Error("Dit zijn 2 verschillende soorten reizen");
+        }
+    }
+}

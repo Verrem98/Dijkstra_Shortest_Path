@@ -64,8 +64,10 @@ public class Main {
 
 
         Reis reis = new Reis(plaatsen,reykjavik,amsterdam,vlucht);
+        Reis reis_2 = new Reis(plaatsen,brussel,amsterdam,vlucht);
 
-        System.out.println(reis.shortestPath());
+
+        System.out.println(reis.compareTo(reis_2));
 
 
     }

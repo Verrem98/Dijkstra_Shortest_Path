@@ -79,7 +79,7 @@ class StandaardRoutes {
         assertTrue(Float.parseFloat(reis_2.shortestPath().split(",")[1].split(" ")[1]) == 22);
         assertTrue(Float.parseFloat(reis_3.shortestPath().split(",")[1].split(" ")[1]) == 373);
 
-        System.out.println("\nVerschillende verbindingTypes werken");
+        System.out.println("\nVerschillende transporatie opties werken");
 
 
 

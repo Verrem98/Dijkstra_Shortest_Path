@@ -77,7 +77,7 @@ class RoutesBijElkaarOptellen {
 
 
         assertEquals(Float.parseFloat(reis_1.shortestPath().split(",")[1].split(" ")[1]),Float.parseFloat(reis_2.shortestPath().split(",")[1].split(" ")[1])+Float.parseFloat(reis_3.shortestPath().split(",")[1].split(" ")[1]));
-        System.out.println("Een treinrit van Utrecht naar Brussel duurt net zo lang als de treinrit van Utrecht naar Amsterdam + de treinrit van Amsterdam naar Brussel");
+        System.out.println("Een treinrit van Utrecht naar Brussel duurt net zo lang als de treinrit van Utrecht naar Amsterdam + de treinrit van Amsterdam naar Brussel\n");
 
     }
 }

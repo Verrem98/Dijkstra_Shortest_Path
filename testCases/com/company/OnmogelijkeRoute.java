@@ -78,8 +78,8 @@ class OnmogelijkeRoute {
 
                     System.out.println("Probeer van reykjavik naar amsterdam te gaan met de trein");
                     String errorMessage = error.getMessage();
-                    assertEquals(errorMessage,"Deze steden zijn niet aan elkaar verbonden via treinrit");
-                    System.out.println('"'+errorMessage+ '"' + " is de correcte error message");
+                    assertEquals(errorMessage,"Deze steden zijn niet met elkaar verbonden via treinrit");
+                    System.out.println('"'+errorMessage+ '"' + " is de correcte error message\n");
 
                 }
 
